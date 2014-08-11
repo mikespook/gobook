@@ -152,7 +152,7 @@ import ( "io/ioutil"; "http"; "fmt" ) |\longremark{The imports needed;}|
 
 func main() {
         r, err := http.Get("http://www.google.com/robots.txt") |\longremark{Use http's \func{Get} to retrieve the html;}|
-        if err != nil { fmt.Printf("%s\n", err.String()); return } |\longremark{Error handling;}|
+        if err != nil { fmt.Printf("%s\n", err.Error()); return } |\longremark{Error handling;}|
         b, err := ioutil.ReadAll(r.Body)    |\longremark{Read the entire document into \var{b};}|
         r.Body.Close()  
         if err == nil { fmt.Printf("%s", string(b)) } |\longremark{If everything was OK, print the document.}|
